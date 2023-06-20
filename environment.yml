@@ -1,0 +1,15 @@
+name: SARS2-cocktail-vax
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+
+dependencies:
+  - altair=5.0
+  - biopython=1.81
+  - entrez-direct=16.2
+  - muscle=5.1
+  - jupyterlab
+  - pandas=2.0
+  - python=3.10
+  - pyyaml=6.0
