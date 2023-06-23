@@ -24,13 +24,13 @@ repetition_downweight: 0.6
 
 # escape calculator settings, taken from specific commit indicated, which uses XBB as the "parent".
 escapecalculator:
-  module_url: https://raw.githubusercontent.com/jbloomlab/SARS2-RBD-escape-calc/683abdd4c3277a3cbc20cddd7ab98ff844f9ef80/escapecalculator.py
+  module_url: https://raw.githubusercontent.com/jbloomlab/SARS2-RBD-escape-calc/5ebb88e5b8c9adc1b601b3cb1cc5308532d97a38/escapecalculator.py
   kwargs:
-    antibody_ic50s: https://raw.githubusercontent.com/jbloomlab/SARS2-RBD-escape-calc/683abdd4c3277a3cbc20cddd7ab98ff844f9ef80/results/antibody_IC50s.csv
-    antibody_binding: https://raw.githubusercontent.com/jbloomlab/SARS2-RBD-escape-calc/683abdd4c3277a3cbc20cddd7ab98ff844f9ef80/results/antibody_binding.csv
-    antibody_sources: https://raw.githubusercontent.com/jbloomlab/SARS2-RBD-escape-calc/683abdd4c3277a3cbc20cddd7ab98ff844f9ef80/results/antibody_sources.csv
-    antibody_reweighting: https://raw.githubusercontent.com/jbloomlab/SARS2-RBD-escape-calc/683abdd4c3277a3cbc20cddd7ab98ff844f9ef80/results/antibody_reweighting.csv
-    config: https://raw.githubusercontent.com/jbloomlab/SARS2-RBD-escape-calc/683abdd4c3277a3cbc20cddd7ab98ff844f9ef80/config.yaml
+    antibody_ic50s: https://raw.githubusercontent.com/jbloomlab/SARS2-RBD-escape-calc/5ebb88e5b8c9adc1b601b3cb1cc5308532d97a38/results/antibody_IC50s.csv
+    antibody_binding: https://raw.githubusercontent.com/jbloomlab/SARS2-RBD-escape-calc/5ebb88e5b8c9adc1b601b3cb1cc5308532d97a38/results/antibody_binding.csv
+    antibody_sources: https://raw.githubusercontent.com/jbloomlab/SARS2-RBD-escape-calc/5ebb88e5b8c9adc1b601b3cb1cc5308532d97a38/results/antibody_sources.csv
+    antibody_reweighting: https://raw.githubusercontent.com/jbloomlab/SARS2-RBD-escape-calc/5ebb88e5b8c9adc1b601b3cb1cc5308532d97a38/results/antibody_reweighting.csv
+    config: https://raw.githubusercontent.com/jbloomlab/SARS2-RBD-escape-calc/5ebb88e5b8c9adc1b601b3cb1cc5308532d97a38/config.yaml
   parent_existing_mut_sites:
     # existing mutated sites in RBD for each parent relative to XBB
     XBB.1.16: [478]
@@ -46,9 +46,9 @@ rbd_dms:
 # We also average in favorable clade-specific estimates for the recent clade to help
 # better capture recently favorable mutations.
 fitness_estimates:
-  fitness: https://raw.githubusercontent.com/jbloomlab/SARS2-mut-fitness/main/results_public_2023-05-11/aa_fitness/aa_fitness.csv
-  by_clade: https://media.githubusercontent.com/media/jbloomlab/SARS2-mut-fitness/main/results_public_2023-05-11/aa_fitness/aamut_fitness_by_clade.csv
-  clade: 22F  # currently includes all XBB clades on tree
+  fitness: https://raw.githubusercontent.com/jbloomlab/SARS2-mut-fitness/main/results_public_2023-06-21/aa_fitness/aa_fitness.csv
+  by_clade: https://media.githubusercontent.com/media/jbloomlab/SARS2-mut-fitness/main/results_public_2023-06-21/aa_fitness/aamut_fitness_by_clade.csv
+  clade: 23A  # XBB.1.5, which is XBB clade with most data
   clade_min_count: 5  # average in clade-specific estimate if it is >0 and either expected or actual counts exceed this
   clip: 4  # contribution to the score is exponential of fitness effect, clipped at this max
-  drop_min_expected_count: 10  # drop mutation if expected count < this in fitness estimates
+  drop_min_expected_count: 8  # drop mutation if expected count < this in fitness estimates
