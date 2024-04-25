@@ -1,15 +1,17 @@
-name: SARS2-cocktail-vax
+name: SARS2-RBD-escape-mutants
 channels:
   - conda-forge
   - bioconda
   - defaults
 
 dependencies:
-  - altair=5.0
-  - biopython=1.81
-  - entrez-direct=16.2
+  - altair=5.3
+  - biopython=1.83
+  - entrez-direct=21.6
   - muscle=5.1
   - jupyterlab
-  - pandas=2.0
-  - python=3.10
-  - pyyaml=6.0
+  - pandas=2.2
+  - pip
+  - pyarrow
+  - python=3.12
+  - ruamel.yaml=0.18.6
