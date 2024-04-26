@@ -1,54 +1,20 @@
 # Wuhan-Hu-1 "reference" spike protein
 ref_spike: YP_009724390
 
-# components of parent vaccine
-parent_spikes:
-  # EPI_ISL_16835403 is first US XBB.1.16 isolate:
-  # https://github.com/cov-lineages/pango-designation/issues/1723/
-  # which has this spike protein accession:
-  # https://www.ncbi.nlm.nih.gov/protein/2440446690
-  XBB.1.16: WCM02109
+# parent specs and how many mutants of each design
+parent_specs:
+  XBB.1.5:
+    specs: parent_specs/XBB.1.5.yaml
+    nmutants: 5
   
-# total number of components per cocktail
-components_per_cocktail: 10
+# design categories and number of mutations per spike in each category
+categories:
+  moderate: 6 
+  aggressive: 12
 
-# mutations per design in cocktails
-mutations_per_design:
-  cocktail: 4
-  aggressive-cocktail: 6
-  conservative-cocktail: 2
+# allow reversions to the Wuhan-Hu-1 reference
+allow_reversions_to_ref: false
 
-# each time a mutation gets included in a cocktail component, downweight it this much
-# to encourage new mutations be included in subsequent cocktail components
+# each time a mutation gets included in a mutant for a parent / category, downweight it this much
+# to encourage new mutations be included in subsequent mutants
 repetition_downweight: 0.5
-
-# escape calculator settings, taken from specific commit indicated, which uses XBB as the "parent".
-escapecalculator:
-  module_url: https://raw.githubusercontent.com/jbloomlab/SARS2-RBD-escape-calc/5ebb88e5b8c9adc1b601b3cb1cc5308532d97a38/escapecalculator.py
-  kwargs:
-    antibody_ic50s: https://raw.githubusercontent.com/jbloomlab/SARS2-RBD-escape-calc/5ebb88e5b8c9adc1b601b3cb1cc5308532d97a38/results/antibody_IC50s.csv
-    antibody_binding: https://raw.githubusercontent.com/jbloomlab/SARS2-RBD-escape-calc/5ebb88e5b8c9adc1b601b3cb1cc5308532d97a38/results/antibody_binding.csv
-    antibody_sources: https://raw.githubusercontent.com/jbloomlab/SARS2-RBD-escape-calc/5ebb88e5b8c9adc1b601b3cb1cc5308532d97a38/results/antibody_sources.csv
-    antibody_reweighting: https://raw.githubusercontent.com/jbloomlab/SARS2-RBD-escape-calc/5ebb88e5b8c9adc1b601b3cb1cc5308532d97a38/results/antibody_reweighting.csv
-    config: https://raw.githubusercontent.com/jbloomlab/SARS2-RBD-escape-calc/5ebb88e5b8c9adc1b601b3cb1cc5308532d97a38/config.yaml
-  parent_existing_mut_sites:
-    # existing mutated sites in RBD for each parent relative to XBB
-    XBB.1.16: [478]
-
-# ACE2 affinity / RBD expression deep mutational scanning
-rbd_dms:
-  data: https://media.githubusercontent.com/media/tstarrlab/SARS-CoV-2-RBD_DMS_Omicron-XBB-BQ/e500f9238740e3e218477c3a9fde2b86fec4f396/results/final_variant_scores/final_variant_scores.csv
-  target: Omicron_XBB15
-  clip: 2  # the contribution to score is exponential of the delta DMS value, clipped at this max
-
-# Fitness estimates from natural sequences
-# Note these also capture nucleotide diversity
-# We also average in favorable clade-specific estimates for the recent clade to help
-# better capture recently favorable mutations.
-fitness_estimates:
-  fitness: https://raw.githubusercontent.com/jbloomlab/SARS2-mut-fitness/main/results_public_2023-06-21/aa_fitness/aa_fitness.csv
-  by_clade: https://media.githubusercontent.com/media/jbloomlab/SARS2-mut-fitness/main/results_public_2023-06-21/aa_fitness/aamut_fitness_by_clade.csv
-  clade: 23A  # XBB.1.5, which is XBB clade with most data
-  clade_min_count: 5  # average in clade-specific estimate if it is >0 and either expected or actual counts exceed this
-  clip: 4  # contribution to the score is exponential of fitness effect, clipped at this max
-  drop_min_expected_count: 8  # drop mutation if expected count < this in fitness estimates
