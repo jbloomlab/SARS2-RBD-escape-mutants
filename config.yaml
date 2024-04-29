@@ -1,5 +1,9 @@
 # Wuhan-Hu-1 "reference" spike protein
 ref_spike: YP_009724390
+rbd_coords: [331, 528]  # start end of RBD in reference, inclusive
+
+# file defining Pango clades
+pango_json: https://raw.githubusercontent.com/corneliusroemer/pango-sequences/main/data/pango-consensus-sequences_summary.json
 
 # parent specs and how many mutants of each design
 parent_specs:
@@ -18,3 +22,6 @@ allow_reversions_to_ref: false
 # each time a mutation gets included in a mutant for a parent / category, downweight it this much
 # to encourage new mutations be included in subsequent mutants
 repetition_downweight: 0.5
+
+# URL to get escape calculator module
+escape_calculator_module_url: https://raw.githubusercontent.com/jbloomlab/SARS2-RBD-escape-calc/6d56b7d0b353ddf7b107eb63b50124826d476dee/escapecalculator.py

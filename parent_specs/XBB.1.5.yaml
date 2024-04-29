@@ -1,18 +1,10 @@
 escapecalculator:
-  # escape calculator and kwargs used to run it
-  module_url: https://raw.githubusercontent.com/jbloomlab/SARS2-RBD-escape-calc/6d56b7d0b353ddf7b107eb63b50124826d476dee/escapecalculator.py
-  kwargs:
-    antibody_ic50s: https://raw.githubusercontent.com/jbloomlab/SARS2-RBD-escape-calc/6d56b7d0b353ddf7b107eb63b50124826d476dee/results/antibody_IC50s.csv
-    antibody_binding: https://raw.githubusercontent.com/jbloomlab/SARS2-RBD-escape-calc/6d56b7d0b353ddf7b107eb63b50124826d476dee/results/antibody_binding.csv
-    antibody_sources: https://raw.githubusercontent.com/jbloomlab/SARS2-RBD-escape-calc/6d56b7d0b353ddf7b107eb63b50124826d476dee/results/antibody_sources.csv
-    antibody_reweighting: https://raw.githubusercontent.com/jbloomlab/SARS2-RBD-escape-calc/6d56b7d0b353ddf7b107eb63b50124826d476dee/results/antibody_reweighting.csv
-    config: https://raw.githubusercontent.com/jbloomlab/SARS2-RBD-escape-calc/6d56b7d0b353ddf7b107eb63b50124826d476dee/config.yaml
-    virus: XBB
-    weight: 1  # weight assigned to escape calculator
+  virus: XBB  # virus to use for escape calculator
+  weight: 1  # weight assigned to escape calculator
 
 # ACE2 affinity / RBD expression deep mutational scanning
 rbd_dms:
-  data: https://media.githubusercontent.com/media/tstarrlab/SARS-CoV-2-RBD_DMS_Omicron-XBB-BQ/46e881d7dbf618ab9509728f29a01ca7eadfed09/results/final_variant_scores/final_variant_scores.csv
+  data: https://media.githubusercontent.com/media/tstarrlab/SARS-CoV-2-RBD_DMS_Omicron-XBB-BQ/main/results/final_variant_scores/final_variant_scores.csv
   target: Omicron_XBB15
   clip: 2  # the contribution to score is exponential of the delta DMS value, clipped at this max
   phenotypes:
