@@ -7,8 +7,7 @@ rbd_dms:
   data: https://media.githubusercontent.com/media/tstarrlab/SARS-CoV-2-RBD_DMS_Omicron-XBB-BQ/main/results/final_variant_scores/final_variant_scores.csv
   target: Omicron_XBB15
   clip: 2  # the contribution to score is exponential of the delta DMS value, clipped at this max
-  phenotypes:
-    # phenotypes to use and weights to give them
+  weights:  # weights assigned to each phenotype
     delta_bind: 1
     delta_expr: 1
 
@@ -31,7 +30,7 @@ fitness_estimates:
 # full-spike deep mutational scanning
 spike_dms:
   csv: https://raw.githubusercontent.com/dms-vep/SARS-CoV-2_XBB.1.5_spike_DMS/main/results/summaries/summary.csv
-  weights:
+  weights:  # weights assigned to each phenotype
     sera escape: 1
     spike mediated entry: 1
     ACE2 binding: 1
