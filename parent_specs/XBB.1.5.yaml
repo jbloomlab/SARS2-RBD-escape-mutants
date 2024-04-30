@@ -15,7 +15,7 @@ rbd_dms:
 # Fitness estimates from natural sequences
 # Note these also capture nucleotide diversity
 # We also average in favorable clade-specific estimates for the recent clade to help
-# better capture recently favorable mutations.
+# better capture recently favorable mutations, but only keep positive values for those
 fitness_estimates:
   fitness: https://raw.githubusercontent.com/jbloomlab/SARS2-mut-fitness/main/results_gisaid_2024-04-24/aa_fitness/aa_fitness.csv
   by_clade: https://media.githubusercontent.com/media/jbloomlab/SARS2-mut-fitness/main/results_gisaid_2024-04-24/aa_fitness/aamut_fitness_by_clade.csv
