@@ -7,8 +7,6 @@ channels:
 dependencies:
   - altair=5.3
   - biopython=1.83
-  - entrez-direct=21.6
-  - muscle=5.1
   - jupyterlab
   - pandas=2.2
   - pip
