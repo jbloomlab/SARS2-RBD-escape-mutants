@@ -7,7 +7,7 @@ pango_json: https://raw.githubusercontent.com/corneliusroemer/pango-sequences/ma
 
 # parent specs and how many mutants of each design
 parent_specs:
-  JN.1:
+  KQ.1:
     specs: parent_specs/XBB.1.5.yaml
     nmutants: 5
   
