@@ -25,3 +25,6 @@ repetition_downweight: 0.5
 
 # URL to get escape calculator module
 escape_calculator_module_url: https://raw.githubusercontent.com/jbloomlab/SARS2-RBD-escape-calc/6d56b7d0b353ddf7b107eb63b50124826d476dee/escapecalculator.py
+
+# output file
+designed_mutants: designed_mutants.csv
