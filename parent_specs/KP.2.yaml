@@ -1,6 +1,6 @@
 escapecalculator:
   virus: BA.2  # virus to use for escape calculator
-  weight: 2  # weight assigned to escape calculator, score is raised to this power
+  weight: 1  # weight assigned to escape calculator, score is raised to this power
 
 # ACE2 affinity / RBD expression deep mutational scanning
 rbd_dms:
