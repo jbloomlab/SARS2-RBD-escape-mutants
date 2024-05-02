@@ -1,0 +1,37 @@
+escapecalculator:
+  virus: XBB  # virus to use for escape calculator
+  weight: 2  # weight assigned to escape calculator, score is raised to this power
+
+# ACE2 affinity / RBD expression deep mutational scanning
+rbd_dms:
+  data: https://media.githubusercontent.com/media/tstarrlab/SARS-CoV-2-RBD_DMS_Omicron-XBB-BQ/main/results/final_variant_scores/final_variant_scores.csv
+  target: Omicron_XBB15
+  clip: 2  # the contribution to score is exponential of the delta DMS value, clipped at this max
+  weights:  # weights assigned to each phenotype
+    delta_bind: 1
+    delta_expr: 1
+
+# Fitness estimates from natural sequences
+# Note these also capture nucleotide diversity
+# We also average in favorable clade-specific estimates for the recent clade to help
+# better capture recently favorable mutations, but only keep positive values for those
+fitness_estimates:
+  fitness: https://raw.githubusercontent.com/jbloomlab/SARS2-mut-fitness/main/results_gisaid_2024-04-24/aa_fitness/aa_fitness.csv
+  by_clade: https://media.githubusercontent.com/media/jbloomlab/SARS2-mut-fitness/main/results_gisaid_2024-04-24/aa_fitness/aamut_fitness_by_clade.csv
+  clade: 23A  # XBB.1.5, which is XBB clade with most data
+  clade_min_count: 5  # use clade-specific estimate if >0 and either expected or actual counts exceed this
+  fitness_min_count: 10  # drop mutation if expected count < this in fitness estimates
+  clip: 2  # contribution to the score is exponential of fitness effect, clipped at this max
+  weights:
+    # weights assigned to each phenotype
+    fitness: 0.5
+    by_clade_effect: 0.5
+
+# full-spike deep mutational scanning
+spike_dms:
+  csv: https://raw.githubusercontent.com/dms-vep/SARS-CoV-2_XBB.1.5_spike_DMS/main/results/summaries/summary.csv
+  weights:  # weights assigned to each phenotype
+    sera escape: 3
+    spike mediated entry: 1
+    ACE2 binding: 0.5
+    
