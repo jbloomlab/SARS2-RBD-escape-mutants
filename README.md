@@ -18,6 +18,7 @@ The future variants are designed by picking mutations that:
  - have  favorable affects on ACE2 affinity and RBD expression as measured using [yeast display RBD deep mutational scanning](https://www.science.org/doi/10.1126/science.abo7896)
  - are estimated to have favorable effects on viral fitness based on [analysis of natural sequences](https://academic.oup.com/ve/article/9/2/vead055/7265011) both across all SARS-CoV-2 sequences and just recent clades
  - have favorable effects on serum antibody escape, cell entry, and ACE2 binding as measured in [full spike deep mutational scanning](https://www.biorxiv.org/content/10.1101/2023.11.13.566961v1)
+ - there is also an option in the configuration for each parent to manually up- or down-weight mutations if you have other information you want to use to favor / disfavor some.
 
 The design process works as follows.
 Each mutation is assigned a score based on its escape from the RBD escape calculator (raised to the power of a weight) times the exponential of all of the other phenotypes (times a weight).

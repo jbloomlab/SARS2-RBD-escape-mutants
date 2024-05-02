@@ -34,4 +34,6 @@ spike_dms:
     sera escape: 3
     spike mediated entry: 1
     ACE2 binding: 0.5
-    
+
+# manually adjust weights of these mutations by these factors:
+manual_weights: {}

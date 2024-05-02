@@ -34,4 +34,7 @@ spike_dms:
     sera escape: 3
     spike mediated entry: 1
     ACE2 binding: 0.5
-    
+
+# manually adjust weights of these mutations by these factors:
+manual_weights:
+  Q493E: 200  # found in KP.3 which is growing fast, and Yunlong Cao shows has escape, but scores badly for ACE2 binding in DMS
